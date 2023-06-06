@@ -159,6 +159,10 @@ interface PriceData {
   };
 }
 
+// interface ICoinProps {
+//   isDark: boolean;
+// }
+
 function Coin() {
   //   const [loading, setLoading] = useState(true);
   const { coinId } = useParams<RouteParams>();
@@ -193,7 +197,7 @@ function Coin() {
     ["tickers", coinId],
     () => fetchCoinTickers(String(coinId)),
     {
-      refetchInterval: 10000,
+      refetchInterval: 5000,
     }
   );
   const loading = infoLoading || tickersLoading;
@@ -208,7 +212,7 @@ function Coin() {
         </Helmet>
       </HelmetProvider>
       <Header>
-        <HomeBtn onClick={() => navigate("")}>🔙</HomeBtn>
+        <HomeBtn onClick={() => navigate("/")}>🔙</HomeBtn>
         <Title>
           {state?.name ? state.name : loading ? "Loading..." : infoData?.name}
         </Title>
@@ -228,7 +232,7 @@ function Coin() {
             </OverviewItem>
             <OverviewItem>
               <span>price:</span>
-              <span>${tickersData?.quotes.USD.price.toFixed(2)}</span>
+              <span>${tickersData?.quotes?.USD?.price?.toFixed(3)}</span>
             </OverviewItem>
           </Overview>
           <Description>{infoData?.description}</Description>

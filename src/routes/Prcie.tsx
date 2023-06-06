@@ -74,23 +74,23 @@ function Price() {
         <PriceUl>
           <PriceLi>
             percent_change_1h:
-            <span>{tickersData?.quotes.USD.percent_change_1h}</span>
+            <span>{tickersData?.quotes?.USD.percent_change_1h}</span>
           </PriceLi>
           <PriceLi>
             percent_change_6h:
-            <span>{tickersData?.quotes.USD.percent_change_6h}</span>
+            <span>{tickersData?.quotes?.USD.percent_change_6h}</span>
           </PriceLi>
           <PriceLi>
             percent_change_12h :
-            <span>{tickersData?.quotes.USD.percent_change_12h}</span>
+            <span>{tickersData?.quotes?.USD.percent_change_12h}</span>
           </PriceLi>
           <PriceLi>
             percent_change_24h :
-            <span>{tickersData?.quotes.USD.percent_change_24h}</span>
+            <span>{tickersData?.quotes?.USD.percent_change_24h}</span>
           </PriceLi>
           <PriceLi>
             percent_change_7d :
-            <span>{tickersData?.quotes.USD.percent_change_7d}</span>
+            <span>{tickersData?.quotes?.USD.percent_change_7d}</span>
           </PriceLi>
         </PriceUl>
       )}

@@ -6,6 +6,8 @@ import { HelmetProvider } from "react-helmet-async";
 import { ThemeProvider } from "styled-components";
 import { darkTheme, lightTheme } from "./theme";
 import { useState } from "react";
+import { useRecoilValue } from "recoil";
+import { isDarkAtom } from "./atoms";
 
 //inherit은 부모 한테서 가져 온다는 뜻이다.
 //import font가 여기서 적용 안될시 index.html로 link태그 시켜서 보내야 한다
@@ -72,13 +74,13 @@ a {
 `;
 
 function App() {
-  const [isDark, setIsDark] = useState(false);
-  const toggleDark = () => setIsDark((current) => !current);
+  const isDark = useRecoilValue(isDarkAtom);
+  // const [isDark, setIsDark] = useState(false);
+  // const toggleDark = () => setIsDark((current) => !current);
 
   return (
     <>
       <ThemeProvider theme={isDark ? darkTheme : lightTheme}>
-        <button onClick={toggleDark}>Toggle Mode</button>
         <GlobalStyle />
         <HelmetProvider>
           <Router />
